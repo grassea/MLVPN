@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include "crypto.h"
 
-#define DEFAULT_MTU 1500
+#define DEFAULT_MTU 1556
 
 enum {
     MLVPN_PKT_AUTH,
