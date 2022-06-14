@@ -1306,7 +1306,9 @@ mlvpn_tuntap_init()
     mlvpn_proto_t proto;
     memset(&tuntap, 0, sizeof(tuntap));
     snprintf(tuntap.devname, MLVPN_IFNAMSIZ-1, "%s", "mlvpn0");
-    tuntap.maxmtu = 1500 - PKTHDRSIZ(proto) - IP4_UDP_OVERHEAD;
+    /* change maxmtu by luhai */
+    tuntap.maxmtu = DEFAULT_MTU - PKTHDRSIZ(proto) - IP4_UDP_OVERHEAD;
+    //tuntap.maxmtu = 1528;
     log_debug(NULL, "absolute maximum mtu: %d", tuntap.maxmtu);
     tuntap.type = MLVPN_TUNTAPMODE_TUN;
     tuntap.sbuf = mlvpn_pktbuffer_init(PKTBUFSIZE);
